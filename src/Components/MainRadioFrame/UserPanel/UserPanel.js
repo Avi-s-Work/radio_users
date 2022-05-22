@@ -1,8 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
+import useAuth from "../../../Hooks/useAuth";
 
 const UserPanel = () => {
+  const { user, logOut } = useAuth();
   return (
     <>
       <section className="singleRadioFrame">
@@ -14,12 +17,14 @@ const UserPanel = () => {
           <a style={{ visibility: "hidden" }} href="/#" alt="">
             User Panel
           </a>
-          <a href="/#" alt="">
+          <Link onClick={logOut} to="/signin">
             <FontAwesomeIcon icon={faSignOutAlt} />
-          </a>
+          </Link>
         </div>
         {/* Bottom Bar  */}
-        <div className="bottomBar"></div>
+        <div className="bottomBar">
+          <span>{user.displayName}</span>
+        </div>
       </section>
     </>
   );

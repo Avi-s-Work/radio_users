@@ -78,7 +78,7 @@
   height: 80px;
   border-top: 1px solid #636161;
 }
-.bottomBar p {
+.bottomBar p, span {
   color: #5cd85a;
   font-size: 14px;
   text-align: center;
