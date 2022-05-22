@@ -1,0 +1,11 @@
+.stationForm h1,
+p {
+  color: #a2abbd;
+  font-weight: lighter;
+  text-transform: uppercase;
+  text-align: center;
+}
+h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}

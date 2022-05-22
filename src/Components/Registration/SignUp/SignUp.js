@@ -100,11 +100,7 @@ const SignUp = () => {
               </Link>
             </div>
 
-            <button
-              onClick={registrationHandler}
-              variant="outline-light"
-              type="submit"
-            >
+            <button onClick={registrationHandler} type="submit">
               Sign Up
             </button>
           </form>
