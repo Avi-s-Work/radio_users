@@ -1,0 +1,92 @@
+.mainRadioFrame {
+  display: flex;
+  align-items: center;
+}
+.singleRadioFrame {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 300px;
+  height: 512px;
+  border-radius: 25px;
+  margin: 20px;
+  background-color: #2f2f3a;
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 25px 20px -20px;
+  overflow: hidden;
+}
+.topBar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  height: 80px;
+  background-color: #5cd85a;
+}
+.topBar a {
+  text-decoration: none;
+  color: whitesmoke;
+  text-transform: uppercase;
+  font-size: 26px;
+  font-weight: lighter;
+}
+.stationNameList {
+  height: 300px;
+  overflow-y: scroll;
+}
+.stationName {
+  border-bottom: 1px solid #636161;
+  margin: 0px 20px 20px 20px;
+}
+.stationName a {
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+}
+.stationName a h2 {
+  font-weight: lighter;
+  color: #a2abbd;
+}
+.singleStation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+.circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+  border-radius: 100px;
+  border: 2px #a2abbd solid;
+}
+.circle h1 {
+  color: #a2abbd;
+  font-size: 40px;
+  font-weight: lighter;
+}
+.wave {
+  height: 100px;
+  width: 300px;
+}
+.bottomBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 80px;
+  border-top: 1px solid #636161;
+}
+.bottomBar p {
+  color: #5cd85a;
+  font-size: 14px;
+  text-align: center;
+  text-transform: uppercase;
+}
+.bottomBar h3 {
+  color: #a2abbd;
+  font-weight: lighter;
+  text-align: center;
+  text-transform: uppercase;
+}
