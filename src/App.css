@@ -12,3 +12,6 @@ body {
 ::-webkit-scrollbar {
   width: 0px;
 }
+.swal2-popup {
+  font-size: 12px !important;
+}

@@ -34,15 +34,15 @@
   overflow-y: scroll;
 }
 .stationName {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: #a2abbd;
   border-bottom: 1px solid #636161;
   margin: 0px 20px 20px 20px;
 }
-.stationName a {
-  display: flex;
-  justify-content: space-between;
-  text-decoration: none;
-}
-.stationName a h2 {
+.stationName h2 {
   font-weight: lighter;
   color: #a2abbd;
 }

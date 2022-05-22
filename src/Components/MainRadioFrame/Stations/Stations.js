@@ -1,11 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Stations = () => {
+  const [stationNames, setStationNames] = useState([]);
+
+  useEffect(() => {
+    fetch("https://mysterious-earth-60925.herokuapp.com/stationNames")
+      .then((res) => res.json())
+      .then((data) => setStationNames(data));
+  }, []);
+
   return (
     <>
       <section className="singleRadioFrame">
@@ -23,18 +33,31 @@ const Stations = () => {
         </div>
         {/* Station Name List  */}
         <div className="stationNameList">
-          <div className="stationName">
-            <a href="/#" alt="">
-              <h2>Hello FM</h2>
-              <h2>98.5</h2>
-            </a>
-          </div>
+          {stationNames
+            .slice(0)
+            .reverse()
+            .map((stationName) => (
+              <div key={stationName._id} className="stationName">
+                <Link style={{ textDecoration: "none" }} to="">
+                  <h3>
+                    {stationName.singleStationName}&nbsp;-&nbsp;
+                    {stationName.singleStationFrequency}
+                  </h3>
+                </Link>
+                <Link
+                  style={{ textDecoration: "none", color: "#a2abbd" }}
+                  to=""
+                >
+                  <FontAwesomeIcon icon={faTimes} />
+                </Link>
+              </div>
+            ))}
         </div>
         {/* Bottom Bar  */}
         <div className="bottomBar">
           <div>
-            <p>CRUD</p>
-            <h3>Operation</h3>
+            <p>total</p>
+            <h3>{stationNames.length}</h3>
           </div>
         </div>
       </section>
