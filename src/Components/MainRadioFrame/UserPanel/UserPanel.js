@@ -1,7 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronLeft, faPowerOff } from "@fortawesome/free-solid-svg-icons";
-import Wave from "../../../imgs/wave.png";
+import { faUserCircle, faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 
 const UserPanel = () => {
   return (
@@ -10,19 +9,13 @@ const UserPanel = () => {
         {/* Top Bar */}
         <div className="topBar">
           <a href="/#" alt="">
-            <FontAwesomeIcon
-              className="mx-2 text-red-500 icon"
-              icon={faChevronLeft}
-            />
+            <FontAwesomeIcon style={{ fontSize: "30px" }} icon={faUserCircle} />
           </a>
           <a style={{ visibility: "hidden" }} href="/#" alt="">
             User Panel
           </a>
           <a href="/#" alt="">
-            <FontAwesomeIcon
-              className="mx-2 text-red-500 icon"
-              icon={faPowerOff}
-            />
+            <FontAwesomeIcon icon={faSignOutAlt} />
           </a>
         </div>
         {/* Bottom Bar  */}

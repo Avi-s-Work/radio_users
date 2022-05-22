@@ -12,19 +12,13 @@ const Stations = () => {
         {/* Top Bar */}
         <div className="topBar">
           <a href="/#" alt="">
-            <FontAwesomeIcon
-              className="mx-2 text-red-500 icon"
-              icon={faChevronLeft}
-            />
+            <FontAwesomeIcon icon={faChevronLeft} />
           </a>
           <a href="/#" alt="">
             Stations
           </a>
           <a href="/#" alt="">
-            <FontAwesomeIcon
-              className="mx-2 text-red-500 icon"
-              icon={faChevronRight}
-            />
+            <FontAwesomeIcon icon={faChevronRight} />
           </a>
         </div>
         {/* Station Name List  */}
