@@ -97,9 +97,20 @@ const SignIn = () => {
                 Sign Up
               </Link>
             </div>
-            <button onClick={signInHandler} type="submit">
-              Sign In
-            </button>
+            <div className="doubleButton">
+              <button onClick={signInHandler} type="submit">
+                Sign In
+              </button>
+              <span>OR</span>
+              <Link
+                onClick={googleLoginHandler}
+                to=""
+                className="googleButton"
+                type="submit"
+              >
+                Google
+              </Link>
+            </div>
           </form>
         </div>
         {/* Bottom Bar  */}

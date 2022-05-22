@@ -37,20 +37,38 @@ input {
 .already {
   color: whitesmoke;
   font-size: 14px;
-  margin-bottom: 10px;
+  /* margin-bottom: 5px; */
 }
-.error span{
+.error span {
   color: #da7242;
   font-size: 13px;
 }
 button {
-  width: 30%;
+  width: 40%;
   background-color: #5cd85a;
   color: whitesmoke;
-  padding: 8px 0;
+  padding: 8px 12px;
+  margin: 10px;
   border-radius: 5px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 100;
   text-transform: uppercase;
+}
+.doubleButton {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.googleButton {
+  color: whitesmoke;
+  padding: 5.5px 12px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 1px #a2abbd solid;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 100;
+  text-transform: uppercase;
+  text-decoration: none;
 }

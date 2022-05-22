@@ -23,7 +23,7 @@ const UserPanel = () => {
         </div>
         {/* Bottom Bar  */}
         <div className="bottomBar">
-          <span>{user.displayName}</span>
+          <p>{user.displayName}</p>
         </div>
       </section>
     </>
