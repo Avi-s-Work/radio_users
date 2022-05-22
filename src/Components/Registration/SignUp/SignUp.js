@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import useAuth from "../../../Hooks/useAuth";
 import "./SignUp.css";
 
@@ -25,7 +24,7 @@ const SignUp = () => {
     e.preventDefault();
     registerNewUser(email, password)
       .then((result) => {
-        navigate("/");
+        navigate("/crud");
         const user = result.user;
         console.log(user);
         setError("");
@@ -95,7 +94,11 @@ const SignUp = () => {
             <div className="already">
               <span>Already have an account?</span>
               &nbsp;
-              <Link to="/signin" onClick={removeError}>
+              <Link
+                style={{ color: "#a2abbd", fontSize: "14px" }}
+                to="/signin"
+                onClick={removeError}
+              >
                 Sign In
               </Link>
             </div>

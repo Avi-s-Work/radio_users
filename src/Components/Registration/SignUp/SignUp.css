@@ -34,10 +34,9 @@ input {
 ::placeholder {
   color: whitesmoke;
 }
-.already {
-  color: whitesmoke;
+.already span {
+  color: #a2abbd;
   font-size: 14px;
-  /* margin-bottom: 5px; */
 }
 .error span {
   color: #da7242;

@@ -21,7 +21,7 @@ const SignIn = () => {
   const googleLoginHandler = () => {
     signInWithGoogle()
       .then((result) => {
-        navigate("/");
+        navigate("/crud");
         //add user to mongoDB
         addUserToDatabase(result.user.email);
       })
@@ -33,7 +33,7 @@ const SignIn = () => {
     e.preventDefault();
     processLogin(email, password)
       .then((result) => {
-        navigate("/");
+        navigate("/crud");
         const user = result.user;
         console.log(user);
         setError("");
@@ -93,7 +93,11 @@ const SignIn = () => {
             <div className="already">
               <span>Don't have an account?</span>
               &nbsp;
-              <Link to="/signup" onClick={removeError}>
+              <Link
+                style={{ color: "#a2abbd", fontSize: "14px" }}
+                to="/signup"
+                onClick={removeError}
+              >
                 Sign Up
               </Link>
             </div>

@@ -12,9 +12,10 @@ function App() {
       <div className="App">
         <BrowserRouter>
           <Routes>
-            <Route exact path="/" element={<MainRadioFrame />}></Route>
-            <Route exact path="signup" element={<SignUp />}></Route>
-            <Route exact path="signin" element={<SignIn />}></Route>
+            <Route exact path="/" element={<SignIn />}></Route>
+            <Route path="/crud" element={<MainRadioFrame />}></Route>
+            <Route path="signup" element={<SignUp />}></Route>
+            <Route path="signin" element={<SignIn />}></Route>
           </Routes>
         </BrowserRouter>
       </div>
