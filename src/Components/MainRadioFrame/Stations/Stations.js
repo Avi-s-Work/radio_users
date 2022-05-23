@@ -7,6 +7,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import Swal from "sweetalert2";
+import "./Stations.css";
 
 const Stations = ({ reload, setReload }) => {
   const [stationNames, setStationNames] = useState([]);
@@ -97,24 +98,26 @@ const Stations = ({ reload, setReload }) => {
                     />
                     <div class="modal">
                       <div class="modal-box">
-                        <h3 class="font-bold text-lg">
+                        <h3 class="text-xl text-center text-slate-900 mb-4">
                           {stationName.singleStationName}{" "}
                           {stationName.singleStationFrequency}
                         </h3>
-                        <form>
+                        <h2 class="text-xl text-center text-slate-900">EDIT</h2>
+                        <form className="modalForm">
                           <input
                             type="text"
-                            placeholder="Station Name"
-                            // maxLength="12"
+                            placeholder="New Name"
+                            maxLength="12"
+                            className="modalInput"
                           />
                           <input
                             type="text"
-                            placeholder="Frequency"
-                            // maxLength="4"
+                            placeholder="New Frequency"
+                            maxLength="4"
+                            className="modalInput"
                           />
-
                           <button className="allbutton" type="submit">
-                            Add Staion
+                            Change Station
                           </button>
                         </form>
                         <div class="modal-action">
