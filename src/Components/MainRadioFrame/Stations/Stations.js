@@ -6,8 +6,10 @@ import {
   faChevronRight,
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
+import axios from "axios";
+import Swal from "sweetalert2";
 
-const Stations = ({reload, setReload}) => {
+const Stations = ({ reload, setReload }) => {
   const [stationNames, setStationNames] = useState([]);
 
   useEffect(() => {
@@ -15,6 +17,30 @@ const Stations = ({reload, setReload}) => {
       .then((res) => res.json())
       .then((data) => setStationNames(data));
   }, [reload]);
+
+  const stationDeleteHandler = (id) => {
+    Swal.fire({
+      icon: "warning",
+      text: "Are you sure you want to delete this station?",
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(
+            `https://mysterious-earth-60925.herokuapp.com/stationNames/${id}`
+          )
+          .then(function (response) {
+            Swal.fire("Sation Deleted Successfully.");
+            setReload(!reload);
+          })
+          .catch(function (error) {
+            console.log(error);
+          });
+      }
+    });
+  };
 
   return (
     <>
@@ -45,6 +71,7 @@ const Stations = ({reload, setReload}) => {
                   </h3>
                 </Link>
                 <Link
+                  onClick={() => stationDeleteHandler(stationName._id)}
                   style={{ textDecoration: "none", color: "#a2abbd" }}
                   to=""
                 >

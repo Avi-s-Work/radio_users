@@ -20,9 +20,10 @@ const UserPanel = ({ reload, setReload }) => {
         if (res.data.insertedId) {
           reset();
           Swal.fire({
+            width: "300px",
             position: "center",
             icon: "success",
-            title: "Station Added Successfully",
+            text: "Station Added Successfully",
             showConfirmButton: false,
             timer: 2500,
           });
