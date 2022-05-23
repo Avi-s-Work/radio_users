@@ -7,14 +7,14 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Stations = () => {
+const Stations = ({reload, setReload}) => {
   const [stationNames, setStationNames] = useState([]);
 
   useEffect(() => {
     fetch("https://mysterious-earth-60925.herokuapp.com/stationNames")
       .then((res) => res.json())
       .then((data) => setStationNames(data));
-  }, []);
+  }, [reload]);
 
   return (
     <>

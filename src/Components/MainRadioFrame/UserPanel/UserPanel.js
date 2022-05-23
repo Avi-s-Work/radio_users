@@ -8,9 +8,10 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import "./UserPanel.css";
 
-const UserPanel = () => {
+const UserPanel = ({ reload, setReload }) => {
   const { user, logOut } = useAuth();
   const { register, handleSubmit, reset } = useForm();
+
   const onSubmit = (data) => {
     console.log(data);
     axios
@@ -26,6 +27,7 @@ const UserPanel = () => {
             timer: 2500,
           });
         }
+        setReload(!reload);
       });
   };
   return (
