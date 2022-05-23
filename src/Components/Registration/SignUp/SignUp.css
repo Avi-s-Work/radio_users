@@ -42,7 +42,7 @@ input {
   color: #da7242;
   font-size: 13px;
 }
-button {
+.allbutton {
   width: 40%;
   background-color: #5cd85a;
   color: whitesmoke;

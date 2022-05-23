@@ -20,11 +20,17 @@ const Stations = ({ reload, setReload }) => {
 
   const stationDeleteHandler = (id) => {
     Swal.fire({
+      width: "400px",
+      position: "center",
+      title: "Are you sure?",
+      text: "You want to delete this station?",
       icon: "warning",
-      text: "Are you sure you want to delete this station?",
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes",
+      showCancelButton: true,
+      showConfirmButton: true,
+      confirmButtonColor: "#5cd85a",
+      cancelButtonColor: "#a2abbd",
+      confirmButtonText: 'Yes',
+      cancelButtonText: "Cancel"
     }).then((result) => {
       if (result.isConfirmed) {
         axios
@@ -32,7 +38,14 @@ const Stations = ({ reload, setReload }) => {
             `https://mysterious-earth-60925.herokuapp.com/stationNames/${id}`
           )
           .then(function (response) {
-            Swal.fire("Sation Deleted Successfully.");
+            Swal.fire({
+              width: "300px",
+              position: "center",
+              icon: "success",
+              text: "Station Deleted Successfully",
+              showConfirmButton: false,
+              timer: 2500,
+            });
             setReload(!reload);
           })
           .catch(function (error) {

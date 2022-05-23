@@ -103,7 +103,7 @@ const SignUp = () => {
               </Link>
             </div>
 
-            <button onClick={registrationHandler} type="submit">
+            <button className="allbutton" onClick={registrationHandler} type="submit">
               Sign Up
             </button>
           </form>

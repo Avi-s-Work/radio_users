@@ -102,7 +102,11 @@ const SignIn = () => {
               </Link>
             </div>
             <div className="doubleButton">
-              <button onClick={signInHandler} type="submit">
+              <button
+                className="allbutton"
+                onClick={signInHandler}
+                type="submit"
+              >
                 Sign In
               </button>
               <span>OR</span>

@@ -64,7 +64,7 @@ const UserPanel = ({ reload, setReload }) => {
               {...register("singleStationFrequency", { required: true })}
             />
 
-            <button type="submit">Add Staion</button>
+            <button className="allbutton" type="submit">Add Staion</button>
           </form>
         </div>
         {/* Bottom Bar  */}
