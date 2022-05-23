@@ -4,12 +4,13 @@ import UserPanel from "./UserPanel/UserPanel";
 import "./MainRadioFrame.css";
 
 const MainRadioFrame = () => {
-  const [reload, setReload] = useState(false);
+  const [reload, setReload] = useState(false);  
+
   return (
     <>
       <div className="mainRadioFrame">
         <UserPanel reload={reload} setReload={setReload} />
-        <Stations reload={reload} setReload={setReload} />
+        <Stations  reload={reload} setReload={setReload} />
       </div>
     </>
   );

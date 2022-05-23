@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -55,6 +56,10 @@ const Stations = ({ reload, setReload }) => {
     });
   };
 
+  const editHandler = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <>
       <section className="singleRadioFrame">
@@ -86,7 +91,7 @@ const Stations = ({ reload, setReload }) => {
                   <div>
                     <label
                       for={stationName._id}
-                      class="modal-button cursor-pointer"
+                      className="modal-button cursor-pointer"
                     >
                       EDIT
                     </label>
@@ -94,15 +99,17 @@ const Stations = ({ reload, setReload }) => {
                     <input
                       type="checkbox"
                       id={stationName._id}
-                      class="modal-toggle"
+                      className="modal-toggle"
                     />
-                    <div class="modal">
-                      <div class="modal-box">
-                        <h3 class="text-xl text-center text-slate-900 mb-4">
+                    <div className="modal">
+                      <div className="modal-box">
+                        <h3 className="text-xl text-center text-slate-900 mb-4">
                           {stationName.singleStationName}{" "}
                           {stationName.singleStationFrequency}
                         </h3>
-                        <h2 class="text-xl text-center text-slate-900">EDIT</h2>
+                        <h2 className="text-xl text-center text-slate-900">
+                          EDIT
+                        </h2>
                         <form className="modalForm">
                           <input
                             type="text"
@@ -116,13 +123,20 @@ const Stations = ({ reload, setReload }) => {
                             maxLength="4"
                             className="modalInput"
                           />
-                          <button className="allbutton" type="submit">
+                          <button
+                            onClick={editHandler}
+                            className="allbutton"
+                            type="submit"
+                          >
                             Change Station
                           </button>
                         </form>
-                        <div class="modal-action">
-                          <label for={stationName._id} class="btn">
-                            OK
+                        <div className="modal-action">
+                          <label
+                            for={stationName._id}
+                            className="cursor-pointer text-xl text-slate-600"
+                          >
+                            <FontAwesomeIcon icon={faTimes} />
                           </label>
                         </div>
                       </div>
