@@ -98,9 +98,25 @@ const Stations = ({ reload, setReload }) => {
                     <div class="modal">
                       <div class="modal-box">
                         <h3 class="font-bold text-lg">
-                          {stationName.singleStationName}
+                          {stationName.singleStationName}{" "}
+                          {stationName.singleStationFrequency}
                         </h3>
-                        <p class="py-4">{stationName.singleStationFrequency}</p>
+                        <form>
+                          <input
+                            type="text"
+                            placeholder="Station Name"
+                            // maxLength="12"
+                          />
+                          <input
+                            type="text"
+                            placeholder="Frequency"
+                            // maxLength="4"
+                          />
+
+                          <button className="allbutton" type="submit">
+                            Add Staion
+                          </button>
+                        </form>
                         <div class="modal-action">
                           <label for={stationName._id} class="btn">
                             OK

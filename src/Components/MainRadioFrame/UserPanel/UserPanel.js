@@ -54,13 +54,13 @@ const UserPanel = ({ reload, setReload }) => {
             <input
               type="text"
               placeholder="Station Name"
-              // maxLength="12"
+              maxLength="12"
               {...register("singleStationName", { required: true })}
             />
             <input
               type="text"
               placeholder="Frequency"
-              // maxLength="4"
+              maxLength="4"
               {...register("singleStationFrequency", { required: true })}
             />
 
