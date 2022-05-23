@@ -35,8 +35,9 @@
 }
 .stationName {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  align-items: flex-start;
   text-decoration: none;
   color: #a2abbd;
   border-bottom: 1px solid #636161;
@@ -45,6 +46,15 @@
 .stationName h2 {
   font-weight: lighter;
   color: #a2abbd;
+}
+.staionNameBar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.editDelete {
+  font-size: 12px;
+  margin-top: 4px;
 }
 .singleStation {
   display: flex;

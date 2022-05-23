@@ -4,7 +4,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
-  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -29,8 +28,8 @@ const Stations = ({ reload, setReload }) => {
       showConfirmButton: true,
       confirmButtonColor: "#5cd85a",
       cancelButtonColor: "#a2abbd",
-      confirmButtonText: 'Yes',
-      cancelButtonText: "Cancel"
+      confirmButtonText: "Yes",
+      cancelButtonText: "Cancel",
     }).then((result) => {
       if (result.isConfirmed) {
         axios
@@ -38,6 +37,7 @@ const Stations = ({ reload, setReload }) => {
             `https://mysterious-earth-60925.herokuapp.com/stationNames/${id}`
           )
           .then(function (response) {
+            setReload(!reload);
             Swal.fire({
               width: "300px",
               position: "center",
@@ -46,7 +46,6 @@ const Stations = ({ reload, setReload }) => {
               showConfirmButton: false,
               timer: 2500,
             });
-            setReload(!reload);
           })
           .catch(function (error) {
             console.log(error);
@@ -77,19 +76,27 @@ const Stations = ({ reload, setReload }) => {
             .reverse()
             .map((stationName) => (
               <div key={stationName._id} className="stationName">
-                <Link style={{ textDecoration: "none" }} to="">
-                  <h3>
-                    {stationName.singleStationName}&nbsp;-&nbsp;
-                    {stationName.singleStationFrequency}
-                  </h3>
-                </Link>
-                <Link
-                  onClick={() => stationDeleteHandler(stationName._id)}
-                  style={{ textDecoration: "none", color: "#a2abbd" }}
-                  to=""
-                >
-                  <FontAwesomeIcon icon={faTimes} />
-                </Link>
+                <div className="staionNameBar">
+                  <h3>{stationName.singleStationName}</h3>
+                  <h3>{stationName.singleStationFrequency}</h3>
+                </div>
+                <div className="editDelete">
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2abbd" }}
+                    // onClick={() => stationEditHandler(stationName._id)}
+                    to=""
+                  >
+                    EDIT
+                  </Link>
+                  &nbsp;/&nbsp;
+                  <Link
+                    style={{ textDecoration: "none", color: "#a2abbd" }}
+                    onClick={() => stationDeleteHandler(stationName._id)}
+                    to=""
+                  >
+                    DELETE
+                  </Link>
+                </div>
               </div>
             ))}
         </div>
