@@ -43,16 +43,15 @@
   border-bottom: 1px solid #636161;
   margin: 0px 20px 20px 20px;
 }
-.stationName h2 {
-  font-weight: lighter;
-  color: #a2abbd;
-}
 .staionNameBar {
   width: 100%;
   display: flex;
   justify-content: space-between;
+  font-size: 22px;
+  color: #a2abbd;
 }
 .editDelete {
+  display: flex;
   font-size: 12px;
   margin-top: 4px;
 }

@@ -81,13 +81,35 @@ const Stations = ({ reload, setReload }) => {
                   <h3>{stationName.singleStationFrequency}</h3>
                 </div>
                 <div className="editDelete">
-                  <Link
-                    style={{ textDecoration: "none", color: "#a2abbd" }}
-                    // onClick={() => stationEditHandler(stationName._id)}
-                    to=""
-                  >
-                    EDIT
-                  </Link>
+                  {/* Edit Modal ///////////////////////////////////////  */}
+                  <div>
+                    <label
+                      for={stationName._id}
+                      class="modal-button cursor-pointer"
+                    >
+                      EDIT
+                    </label>
+
+                    <input
+                      type="checkbox"
+                      id={stationName._id}
+                      class="modal-toggle"
+                    />
+                    <div class="modal">
+                      <div class="modal-box">
+                        <h3 class="font-bold text-lg">
+                          {stationName.singleStationName}
+                        </h3>
+                        <p class="py-4">{stationName.singleStationFrequency}</p>
+                        <div class="modal-action">
+                          <label for={stationName._id} class="btn">
+                            OK
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {/* End of Edit Modal ////////////////////////////////  */}
                   &nbsp;/&nbsp;
                   <Link
                     style={{ textDecoration: "none", color: "#a2abbd" }}
