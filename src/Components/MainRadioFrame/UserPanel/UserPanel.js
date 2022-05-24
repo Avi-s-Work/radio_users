@@ -15,7 +15,8 @@ const UserPanel = ({ reload, setReload }) => {
   const onSubmit = (data) => {
     console.log(data);
     axios
-      .post("https://mysterious-earth-60925.herokuapp.com/stationNames", data)
+      // .post("https://mysterious-earth-60925.herokuapp.com/stationNames", data)
+      .post("http://localhost:5000/stationNames", data)
       .then((res) => {
         if (res.data.insertedId) {
           reset();
@@ -64,7 +65,9 @@ const UserPanel = ({ reload, setReload }) => {
               {...register("singleStationFrequency", { required: true })}
             />
 
-            <button className="allbutton" type="submit">Add Staion</button>
+            <button className="allbutton" type="submit">
+              Add Staion
+            </button>
           </form>
         </div>
         {/* Bottom Bar  */}

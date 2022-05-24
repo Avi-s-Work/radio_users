@@ -16,11 +16,13 @@ const Stations = ({ reload, setReload }) => {
   const [frequency, setFrequency] = useState("");
 
   useEffect(() => {
-    fetch("https://mysterious-earth-60925.herokuapp.com/stationNames")
+    // fetch("https://mysterious-earth-60925.herokuapp.com/stationNames")
+    fetch("http://localhost:5000/stationNames")
       .then((res) => res.json())
       .then((data) => setStationNames(data));
   }, [reload]);
 
+  //Delete Station Handler
   const stationDeleteHandler = (id) => {
     Swal.fire({
       width: "400px",
@@ -38,7 +40,8 @@ const Stations = ({ reload, setReload }) => {
       if (result.isConfirmed) {
         axios
           .delete(
-            `https://mysterious-earth-60925.herokuapp.com/stationNames/${id}`
+            `http://localhost:5000/stationNames/${id}`
+            // `https://mysterious-earth-60925.herokuapp.com/stationNames/${id}`
           )
           .then(function (response) {
             setReload(!reload);
@@ -58,9 +61,11 @@ const Stations = ({ reload, setReload }) => {
     });
   };
 
+  //Change Station Handler
   const updateStation = (id) => {
     const newStation = { name, frequency };
     console.log(newStation);
+    // const url = `https://mysterious-earth-60925.herokuapp.com/stationNames/${id}`;
     const url = `http://localhost:5000/stationNames/${id}`;
     fetch(url, {
       method: "PUT",
@@ -73,7 +78,16 @@ const Stations = ({ reload, setReload }) => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          alert("Update Successful");
+          setReload(!reload);
+          Swal.fire({
+            width: "300px",
+            position: "center",
+            icon: "success",
+            text: "Station Changed Successfully",
+            showConfirmButton: false,
+            timer: 2500,
+          });
+          // e.target.reset();
         }
       });
   };
@@ -108,7 +122,7 @@ const Stations = ({ reload, setReload }) => {
                   {/* Edit Modal ///////////////////////////////////////  */}
                   <div>
                     <label
-                      for={stationName._id}
+                      htmlFor={stationName._id}
                       className="modal-button cursor-pointer"
                     >
                       EDIT
@@ -128,38 +142,38 @@ const Stations = ({ reload, setReload }) => {
                         <h2 className="text-xl text-center text-slate-900">
                           EDIT
                         </h2>
-                        {/* <form className="modalForm"> */}
-                        <input
-                          type="text"
-                          placeholder="New Name"
-                          maxLength="12"
-                          className="modalInput"
-                          value={name}
-                          onChange={(e) => {
-                            setName(e.target.value);
-                          }}
-                        />
-                        <input
-                          type="text"
-                          placeholder="New Frequency"
-                          maxLength="4"
-                          className="modalInput"
-                          value={frequency}
-                          onChange={(e) => {
-                            setFrequency(e.target.value);
-                          }}
-                        />
-                        <button
-                          onClick={() => updateStation(stationName._id)}
-                          className="allbutton"
-                          type="submit"
-                        >
-                          Change Station
-                        </button>
-                        {/* </form> */}
+                        <div className="modalForm">
+                          <input
+                            type="text"
+                            placeholder="New Name"
+                            maxLength="12"
+                            className="modalInput"
+                            value={name}
+                            onChange={(e) => {
+                              setName(e.target.value);
+                            }}
+                          />
+                          <input
+                            type="text"
+                            placeholder="New Frequency"
+                            maxLength="4"
+                            className="modalInput"
+                            value={frequency}
+                            onChange={(e) => {
+                              setFrequency(e.target.value);
+                            }}
+                          />
+                          <button
+                            onClick={() => updateStation(stationName._id)}
+                            className="allbutton"
+                            type="submit"
+                          >
+                            Change Station
+                          </button>
+                        </div>
                         <div className="modal-action">
                           <label
-                            for={stationName._id}
+                            htmlFor={stationName._id}
                             className="cursor-pointer text-xl text-slate-600"
                           >
                             <FontAwesomeIcon icon={faTimes} />
