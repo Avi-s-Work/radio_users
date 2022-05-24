@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronLeft,
   faChevronRight,
-  faTimes
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -12,6 +12,8 @@ import "./Stations.css";
 
 const Stations = ({ reload, setReload }) => {
   const [stationNames, setStationNames] = useState([]);
+  const [name, setName] = useState("");
+  const [frequency, setFrequency] = useState("");
 
   useEffect(() => {
     fetch("https://mysterious-earth-60925.herokuapp.com/stationNames")
@@ -56,8 +58,24 @@ const Stations = ({ reload, setReload }) => {
     });
   };
 
-  const editHandler = (e) => {
-    e.preventDefault();
+  const updateStation = (id) => {
+    const newStation = { name, frequency };
+    console.log(newStation);
+    const url = `http://localhost:5000/stationNames/${id}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(newStation),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.modifiedCount > 0) {
+          alert("Update Successful");
+        }
+      });
   };
 
   return (
@@ -110,27 +128,35 @@ const Stations = ({ reload, setReload }) => {
                         <h2 className="text-xl text-center text-slate-900">
                           EDIT
                         </h2>
-                        <form className="modalForm">
-                          <input
-                            type="text"
-                            placeholder="New Name"
-                            maxLength="12"
-                            className="modalInput"
-                          />
-                          <input
-                            type="text"
-                            placeholder="New Frequency"
-                            maxLength="4"
-                            className="modalInput"
-                          />
-                          <button
-                            onClick={editHandler}
-                            className="allbutton"
-                            type="submit"
-                          >
-                            Change Station
-                          </button>
-                        </form>
+                        {/* <form className="modalForm"> */}
+                        <input
+                          type="text"
+                          placeholder="New Name"
+                          maxLength="12"
+                          className="modalInput"
+                          value={name}
+                          onChange={(e) => {
+                            setName(e.target.value);
+                          }}
+                        />
+                        <input
+                          type="text"
+                          placeholder="New Frequency"
+                          maxLength="4"
+                          className="modalInput"
+                          value={frequency}
+                          onChange={(e) => {
+                            setFrequency(e.target.value);
+                          }}
+                        />
+                        <button
+                          onClick={() => updateStation(stationName._id)}
+                          className="allbutton"
+                          type="submit"
+                        >
+                          Change Station
+                        </button>
+                        {/* </form> */}
                         <div className="modal-action">
                           <label
                             for={stationName._id}
