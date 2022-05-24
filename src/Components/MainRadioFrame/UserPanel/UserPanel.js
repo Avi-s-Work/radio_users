@@ -15,8 +15,8 @@ const UserPanel = ({ reload, setReload }) => {
   const onSubmit = (data) => {
     console.log(data);
     axios
-      // .post("https://mysterious-earth-60925.herokuapp.com/stationNames", data)
-      .post("http://localhost:5000/stationNames", data)
+      .post("https://mysterious-earth-60925.herokuapp.com/stationNames", data)
+      // .post("http://localhost:5000/stationNames", data)
       .then((res) => {
         if (res.data.insertedId) {
           reset();
@@ -55,7 +55,7 @@ const UserPanel = ({ reload, setReload }) => {
             <input
               type="text"
               placeholder="Station Name"
-              maxLength="12"
+              // maxLength="12"
               {...register("singleStationName", { required: true })}
             />
             <input

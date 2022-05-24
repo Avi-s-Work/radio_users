@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -16,8 +16,8 @@ const Stations = ({ reload, setReload }) => {
   const [frequency, setFrequency] = useState("");
 
   useEffect(() => {
-    // fetch("https://mysterious-earth-60925.herokuapp.com/stationNames")
-    fetch("http://localhost:5000/stationNames")
+    fetch("https://mysterious-earth-60925.herokuapp.com/stationNames")
+      // fetch("http://localhost:5000/stationNames")
       .then((res) => res.json())
       .then((data) => setStationNames(data));
   }, [reload]);
@@ -40,8 +40,8 @@ const Stations = ({ reload, setReload }) => {
       if (result.isConfirmed) {
         axios
           .delete(
-            `http://localhost:5000/stationNames/${id}`
-            // `https://mysterious-earth-60925.herokuapp.com/stationNames/${id}`
+            // `http://localhost:5000/stationNames/${id}`
+            `https://mysterious-earth-60925.herokuapp.com/stationNames/${id}`
           )
           .then(function (response) {
             setReload(!reload);
@@ -65,8 +65,8 @@ const Stations = ({ reload, setReload }) => {
   const updateStation = (id) => {
     const newStation = { name, frequency };
     console.log(newStation);
-    // const url = `https://mysterious-earth-60925.herokuapp.com/stationNames/${id}`;
-    const url = `http://localhost:5000/stationNames/${id}`;
+    const url = `https://mysterious-earth-60925.herokuapp.com/stationNames/${id}`;
+    // const url = `http://localhost:5000/stationNames/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -87,7 +87,6 @@ const Stations = ({ reload, setReload }) => {
             showConfirmButton: false,
             timer: 2500,
           });
-          // e.target.reset();
         }
       });
   };
@@ -146,7 +145,7 @@ const Stations = ({ reload, setReload }) => {
                           <input
                             type="text"
                             placeholder="New Name"
-                            maxLength="12"
+                            // maxLength="12"
                             className="modalInput"
                             value={name}
                             onChange={(e) => {
