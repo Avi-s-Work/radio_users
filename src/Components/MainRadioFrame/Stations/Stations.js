@@ -78,7 +78,6 @@ const Stations = ({ reload, setReload }) => {
       .then((data) => {
         console.log(data);
         if (data.modifiedCount > 0) {
-          setReload(!reload);
           Swal.fire({
             width: "300px",
             position: "center",
@@ -87,6 +86,7 @@ const Stations = ({ reload, setReload }) => {
             showConfirmButton: false,
             timer: 2500,
           });
+          setReload(!reload);
         }
       });
   };
